@@ -1,5 +1,8 @@
 const formData = { email: '', message: '' };
 const form = document.querySelector(`.feedback-form`);
+
+window.addEventListener('DOMContentLoaded', fillText);
+
 form.addEventListener('input', handleInput);
 form.addEventListener('submit', sendData);
 
@@ -26,6 +29,9 @@ function sendData(event) {
     alert('Fill please all fields');
     return;
   }
+
+  console.log({ email: email.value, message: message.value });
+
   localStorage.removeItem('feedback-form-state');
   formData.email = '';
     formData.message = '';
